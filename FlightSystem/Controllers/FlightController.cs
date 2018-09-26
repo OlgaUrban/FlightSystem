@@ -1,4 +1,6 @@
 ﻿using System.Web.Mvc;
+using FlightSystem.Business.Query.Interface;
+using FlightSystem.Business.Query.Interfaces;
 using FlightSystem.Business.Services.Interface;
 using FlightSystem.Web.Helpers;
 using FlightSystem.Web.Models;
@@ -8,28 +10,31 @@ namespace FlightSystem.Web.Controllers
     public class FlightController : Controller
     {
         private readonly IFlightService _flightService;
-        private readonly IAircraftService _aircraftService;
-        private readonly IAirportService _airportService;
+        private readonly IFlightQuery _flightQuery;
+        private readonly IAircraftQuery _aircraftService;
+        private readonly IAirportQuery _airportService;
 
         public FlightController(IFlightService flightService,
-            IAircraftService aircraftService,
-            IAirportService airportService)
+            IFlightQuery flightQuery,
+            IAircraftQuery aircraftService,
+            IAirportQuery airportService)
         {
             _flightService = flightService;
+            _flightQuery = flightQuery;
             _aircraftService = aircraftService;
             _airportService = airportService;
         }
 
         public ActionResult Index()
         {
-            var model = _flightService.GetFlights().ToViewModel();
+            var model = _flightQuery.GetFlights().ToViewModel();
 
             return View(model);
         }
 
         public ActionResult Report()
         {
-            var model = _flightService.GetReport().ToViewModel();
+            var model = _flightQuery.GetReport().ToViewModel();
 
             return View(model);
         }
@@ -37,7 +42,7 @@ namespace FlightSystem.Web.Controllers
         //Get edit form
         public ActionResult Edit(int id)
         {
-            var flight = _flightService.GetFlightById(id).ToViewModel();
+            var flight = _flightQuery.GetFlightById(id).ToViewModel();
 
             flight.AircraftSelectList = _aircraftService.GetAircraftSelectList().ToViewModel();
             flight.AirportSelectList = _airportService.GetAirportSelectList().ToViewModel();

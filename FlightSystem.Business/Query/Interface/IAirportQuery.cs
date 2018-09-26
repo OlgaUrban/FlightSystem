@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using FlightSystem.Data.Domain;
 
-namespace FlightSystem.Business.Services.Interface
+namespace FlightSystem.Business.Query.Interface
 {
-    public interface IAirportService
+    public interface IAirportQuery
     {
         IEnumerable<Airport> GetAirportSelectList();
     }

@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
+using FlightSystem.Business.Query.Interface;
 using FlightSystem.Data.Domain;
 using FlightSystem.Data.Repository;
-using FlightSystem.Business.Services.Interface;
 
-namespace FlightSystem.Business.Services.Implementation
+namespace FlightSystem.Business.Query.Implementation
 {
-    public class AirportService : IAirportService
+    public class AirportQuery : IAirportQuery
     {
         private readonly AirportRepository _airportRepository;
 
-        public AirportService()
+        public AirportQuery()
         {
             _airportRepository = new AirportRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         }

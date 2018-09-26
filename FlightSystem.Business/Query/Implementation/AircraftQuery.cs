@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
-using FlightSystem.Business.Services.Interface;
+using FlightSystem.Business.Query.Interface;
 using FlightSystem.Data.Domain;
 using FlightSystem.Data.Repository;
 
-namespace FlightSystem.Business.Services.Implementation
+namespace FlightSystem.Business.Query.Implementation
 {
-    public class AircraftService : IAircraftService
+    public class AircraftQuery : IAircraftQuery
     {
         private readonly AircraftRepository _aircraftRepository;
 
-        public AircraftService()
+        public AircraftQuery()
         {
             _aircraftRepository = new AircraftRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         }

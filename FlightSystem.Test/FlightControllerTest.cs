@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using FlightSystem.Business.Models;
+using FlightSystem.Business.Query.Interface;
+using FlightSystem.Business.Query.Interfaces;
 using FlightSystem.Business.Services.Interface;
 using FlightSystem.Data.Domain;
 using FlightSystem.Web.Controllers;
@@ -9,14 +11,15 @@ using FlightSystem.Web.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace FlightSystem.Test
+namespace FlightSystem.Web.Test
 {
     [TestClass]
     public class FlightControllerTest
     {
-        private readonly Mock<IAircraftService> _aircraftServiceMock = new Mock<IAircraftService>();
-        private readonly Mock<IAirportService> _airportServiceMock = new Mock<IAirportService>();
+        private readonly Mock<IAircraftQuery> _aircraftServiceMock = new Mock<IAircraftQuery>();
+        private readonly Mock<IAirportQuery> _airportServiceMock = new Mock<IAirportQuery>();
         private readonly Mock<IFlightService> _flightServiceMock = new Mock<IFlightService>();
+        private readonly Mock<IFlightQuery> _flightQueryMock = new Mock<IFlightQuery>();
 
         private readonly FlightController _controller;
 
@@ -25,13 +28,14 @@ namespace FlightSystem.Test
 
             _aircraftServiceMock.Setup(a => a.GetAircraftSelectList()).Returns(new List<Aircraft>());
             _airportServiceMock.Setup(a => a.GetAirportSelectList()).Returns(new List<Airport>());
-            _flightServiceMock.Setup(a => a.GetFlights()).Returns(new List<Flight>());
-            _flightServiceMock.Setup(a => a.GetReport()).Returns(new List<FlightReport>());
+            _flightQueryMock.Setup(a => a.GetFlights()).Returns(new List<Flight>());
+            _flightQueryMock.Setup(a => a.GetReport()).Returns(new List<FlightReport>());
             _flightServiceMock.Setup(a => a.CreateFlight(It.IsAny<Flight>())).Returns(new bool());
-            _flightServiceMock.Setup(a => a.GetFlightById(It.IsAny<int>())).Returns(new Flight());
+            _flightQueryMock.Setup(a => a.GetFlightById(It.IsAny<int>())).Returns(new Flight());
 
             _controller = new FlightController(
                 _flightServiceMock.Object, 
+                _flightQueryMock.Object,
                 _aircraftServiceMock.Object,
                 _airportServiceMock.Object);
         }
@@ -45,7 +49,7 @@ namespace FlightSystem.Test
             var resultView = result as ViewResult;
             Assert.IsNotNull(resultView);
             Assert.IsNotNull(resultView.Model);
-            _flightServiceMock.Verify(e => e.GetFlights());
+            _flightQueryMock.Verify(e => e.GetFlights());
         }
 
         [TestMethod]
@@ -57,7 +61,7 @@ namespace FlightSystem.Test
             var resultView = result as ViewResult;
             Assert.IsNotNull(resultView);
             Assert.IsNotNull(resultView.Model);
-            _flightServiceMock.Verify(e => e.GetReport());
+            _flightQueryMock.Verify(e => e.GetReport());
         }
 
         [TestMethod]
@@ -69,7 +73,7 @@ namespace FlightSystem.Test
             var resultView = result as ViewResult;
             Assert.IsNotNull(resultView);
             Assert.IsNotNull(resultView.Model);
-            _flightServiceMock.Verify(e => e.GetFlightById(It.IsAny<int>()));
+            _flightQueryMock.Verify(e => e.GetFlightById(It.IsAny<int>()));
         }
 
         [TestMethod]
