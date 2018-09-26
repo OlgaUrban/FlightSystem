@@ -11,7 +11,7 @@ namespace FlightSystem.Web.Helpers
     {
         public static IEnumerable<FlightListViewModel> ToViewModel(this IEnumerable<Flight> model)
         {
-            return model.Select(e => new FlightListViewModel
+            return model?.Select(e => new FlightListViewModel
             {
                 Id = e.Id,
                 Aircraft = e.Aircraft.Name,
@@ -24,7 +24,7 @@ namespace FlightSystem.Web.Helpers
 
         public static IEnumerable<ReportListViewModel> ToViewModel(this IEnumerable<FlightReport> model)
         {
-            return model.Select(e => new ReportListViewModel
+            return model?.Select(e => new ReportListViewModel
             {
                 Aircraft = e.Aircraft,
                 DepartureAirport = e.DepartureAirport,
@@ -38,7 +38,7 @@ namespace FlightSystem.Web.Helpers
 
         public static IEnumerable<SelectListItem> ToViewModel(this IEnumerable<Aircraft> model)
         {
-            return model.Select(e => new SelectListItem
+            return model?.Select(e => new SelectListItem
             {
                 Text = e.Name,
                 Value = e.Id.ToString()
@@ -47,7 +47,7 @@ namespace FlightSystem.Web.Helpers
 
         public static IEnumerable<SelectListItem> ToViewModel(this IEnumerable<Airport> model)
         {
-            return model.Select(e => new SelectListItem
+            return model?.Select(e => new SelectListItem
             {
                 Text = e.Name,
                 Value = e.Id.ToString()
@@ -56,34 +56,38 @@ namespace FlightSystem.Web.Helpers
 
         public static FlightViewModel ToViewModel(this Flight model)
         {
-            return new FlightViewModel
-            {
-                AircraftId = model.AircraftId,
-                Departure = new AirportViewModel
+            return model == null
+                ? null
+                : new FlightViewModel
                 {
-                    AirportId = model.DepartureAirportId,
-                    DateTime = model.DepartureDateTime,
-                },
-                Destination = new AirportViewModel
-                {
-                    AirportId = model.DestinationAirportId,
-                    DateTime = model.DestinationDateTime
-                },
-                Id = model.Id
-            };
+                    AircraftId = model.AircraftId,
+                    Departure = new AirportViewModel
+                    {
+                        AirportId = model.DepartureAirportId,
+                        DateTime = model.DepartureDateTime,
+                    },
+                    Destination = new AirportViewModel
+                    {
+                        AirportId = model.DestinationAirportId,
+                        DateTime = model.DestinationDateTime
+                    },
+                    Id = model.Id
+                };
         }
 
         public static Flight ToDomainModel(this FlightViewModel model)
         {
-            return new Flight
-            {
-                Id = model.Id,
-                AircraftId = model.AircraftId,
-                DepartureAirportId = model.Departure.AirportId,
-                DestinationAirportId = model.Destination.AirportId,
-                DepartureDateTime = model.Departure.DateTime,
-                DestinationDateTime = model.Destination.DateTime
-            };
+            return model == null
+                ? null
+                : new Flight
+                {
+                    Id = model.Id,
+                    AircraftId = model.AircraftId,
+                    DepartureAirportId = model.Departure.AirportId,
+                    DestinationAirportId = model.Destination.AirportId,
+                    DepartureDateTime = model.Departure.DateTime,
+                    DestinationDateTime = model.Destination.DateTime
+                };
         }
     }
 }
