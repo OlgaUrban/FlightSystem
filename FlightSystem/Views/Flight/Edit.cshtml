@@ -1,0 +1,91 @@
+﻿@model FlightSystem.Web.Models.FlightViewModel
+
+<div class="container" style="padding-top: 10px">
+    @using (Html.BeginForm("CreateOrUpdate", "Flight", FormMethod.Post, new { @class = "form-inline", role = "form", autocomplete = "off" }))
+    {
+        @Html.HiddenFor(e => e.Id)
+
+        <h3>Update the flight</h3>
+        <hr />
+        <div class="col-xs-10">
+            <div id="departure-content" style="padding-top: 10px">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <label class="control-label col-xs-3">Aircraft</label>
+                        <div class="col-xs-9">
+                            @Html.DropDownListFor(e => e.AircraftId, Model.AircraftSelectList, " - Please, select -",
+                                new {@class = "form-control selectpicker "})
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="departure-content" style="padding-top: 10px">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4>Departure</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <label class="control-label col-xs-3">Airport</label>
+                        <div class="col-xs-9">
+                            @Html.DropDownListFor(e => e.Departure.AirportId, Model.AirportSelectList, " - Please, select -",
+                                new {@class = "form-control selectpicker "})
+                        </div>
+                    </div>
+                    <div class=" col-xs-6">
+                        <label class="col-xs-2 control-label">Date</label>
+                        <div class="col-xs-10">
+                            <div class="form-group">
+                                <div class='input-group datetimepicker'>
+                                    @Html.TextBoxFor(e => e.Departure.DateTime, new { @class = "form-control" })
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="destination-content" style="padding-top: 10px">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h4>Destination</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <label class="control-label col-xs-3">Airport</label>
+                        <div class="col-xs-9">
+                            @Html.DropDownListFor(e => e.Destination.AirportId, Model.AirportSelectList, " - Please, select -",
+                                new {@class = "form-control selectpicker "})
+                        </div>
+                    </div>
+                    <div class=" col-xs-6">
+                        <label class="col-xs-2 control-label">Date</label>
+                        <div class="col-xs-10">
+                            <div class="form-group">
+                                <div class='input-group datetimepicker'>
+                                    @Html.TextBoxFor(e => e.Destination.DateTime, null, new { @class = "form-control" })
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="submit-panel" style="padding-top: 10px">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

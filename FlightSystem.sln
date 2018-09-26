@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightSystem.Web", "FlightSystem\FlightSystem.Web.csproj", "{62B3F01A-6BAA-48DE-9E08-B90B85191F0E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{47445724-8DA8-4D7B-95DF-678F4BA3501A} = {47445724-8DA8-4D7B-95DF-678F4BA3501A}
+		{37098681-7194-4E31-AF44-93E23B46DCAD} = {37098681-7194-4E31-AF44-93E23B46DCAD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightSystem.Business", "FlightSystem.Business\FlightSystem.Business.csproj", "{47445724-8DA8-4D7B-95DF-678F4BA3501A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{37098681-7194-4E31-AF44-93E23B46DCAD} = {37098681-7194-4E31-AF44-93E23B46DCAD}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightSystem.Data", "FlightSystem.Data\FlightSystem.Data.csproj", "{37098681-7194-4E31-AF44-93E23B46DCAD}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "FlightSystem.Database", "FlightSystem.Database\FlightSystem.Database.sqlproj", "{ED22BB3A-A1E5-4B3B-B54F-8E9D227CF85D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62B3F01A-6BAA-48DE-9E08-B90B85191F0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62B3F01A-6BAA-48DE-9E08-B90B85191F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62B3F01A-6BAA-48DE-9E08-B90B85191F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62B3F01A-6BAA-48DE-9E08-B90B85191F0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47445724-8DA8-4D7B-95DF-678F4BA3501A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47445724-8DA8-4D7B-95DF-678F4BA3501A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47445724-8DA8-4D7B-95DF-678F4BA3501A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47445724-8DA8-4D7B-95DF-678F4BA3501A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37098681-7194-4E31-AF44-93E23B46DCAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37098681-7194-4E31-AF44-93E23B46DCAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37098681-7194-4E31-AF44-93E23B46DCAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37098681-7194-4E31-AF44-93E23B46DCAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED22BB3A-A1E5-4B3B-B54F-8E9D227CF85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED22BB3A-A1E5-4B3B-B54F-8E9D227CF85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED22BB3A-A1E5-4B3B-B54F-8E9D227CF85D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{ED22BB3A-A1E5-4B3B-B54F-8E9D227CF85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED22BB3A-A1E5-4B3B-B54F-8E9D227CF85D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED22BB3A-A1E5-4B3B-B54F-8E9D227CF85D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0C2A955-D780-4B6E-89AC-1C429D71DE9A}
+	EndGlobalSection
+EndGlobal

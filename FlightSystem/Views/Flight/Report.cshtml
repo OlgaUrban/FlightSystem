@@ -1,0 +1,42 @@
+﻿@model IEnumerable<FlightSystem.Web.Models.ReportListViewModel>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>Report</h3>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table" style="padding-top: 10px;">
+            <thead>
+                <tr class="row">
+                    <th rowspan="2">Aircraft</th>
+                    <th colspan="2" class="text-center">Departure</th>
+                    <th colspan="2" class="text-center">Destination</th>
+                    <th rowspan="2">Distance</th>
+                    <th rowspan="2">Fuel (per distance)</th>
+                </tr>
+                <tr class="row">
+                    <th class="col-xs-1">Airport</th>
+                    <th class="col-xs-2">Date</th>
+                    <th class="col-xs-1">Airport</th>
+                    <th class="col-xs-2">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="row">
+                        <td class="col-xs-2">@item.Aircraft</td>
+                        <td class="col-xs-1">@item.DepartureAirport</td>
+                        <td class="col-xs-2">@item.DepartureDate</td>
+                        <td class="col-xs-1">@item.DestinationAirport</td>
+                        <td class="col-xs-2">@item.DestinationDate</td>
+                        <td class="col-xs-2">@item.Distance.ToString("N")&nbsp;km</td>
+                        <td class="col-xs-2">@item.Fuel.ToString("N")&nbsp;L</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
