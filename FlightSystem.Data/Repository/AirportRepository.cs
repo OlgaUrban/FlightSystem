@@ -12,7 +12,7 @@ namespace FlightSystem.Data.Repository
         {
         }
 
-        public IEnumerable<Airport> GetAirportSelectList()
+        public IEnumerable<Airport> GetAirports()
         {
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {

@@ -44,8 +44,8 @@ namespace FlightSystem.Web.Controllers
         {
             var flight = _flightQuery.GetFlightById(id).ToViewModel();
 
-            flight.AircraftSelectList = _aircraftService.GetAircraftSelectList().ToViewModel();
-            flight.AirportSelectList = _airportService.GetAirportSelectList().ToViewModel();
+            flight.AircraftSelectList = _aircraftService.GetAircrafts().ToSelectListViewModel();
+            flight.AirportSelectList = _airportService.GetAirports().ToSelectListViewModel();
 
             return View(flight);
         }
@@ -55,8 +55,8 @@ namespace FlightSystem.Web.Controllers
         {
             var model = new FlightViewModel
             {
-                AircraftSelectList = _aircraftService.GetAircraftSelectList().ToViewModel(),
-                AirportSelectList = _airportService.GetAirportSelectList().ToViewModel()
+                AircraftSelectList = _aircraftService.GetAircrafts().ToSelectListViewModel(),
+                AirportSelectList = _airportService.GetAirports().ToSelectListViewModel()
             };
 
             return View(model);

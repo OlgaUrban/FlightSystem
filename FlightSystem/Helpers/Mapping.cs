@@ -36,7 +36,7 @@ namespace FlightSystem.Web.Helpers
             });
         }
 
-        public static IEnumerable<SelectListItem> ToViewModel(this IEnumerable<Aircraft> model)
+        public static IEnumerable<SelectListItem> ToSelectListViewModel(this IEnumerable<Aircraft> model)
         {
             return model?.Select(e => new SelectListItem
             {
@@ -45,7 +45,7 @@ namespace FlightSystem.Web.Helpers
             });
         }
 
-        public static IEnumerable<SelectListItem> ToViewModel(this IEnumerable<Airport> model)
+        public static IEnumerable<SelectListItem> ToSelectListViewModel(this IEnumerable<Airport> model)
         {
             return model?.Select(e => new SelectListItem
             {

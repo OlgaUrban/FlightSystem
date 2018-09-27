@@ -12,7 +12,7 @@ namespace FlightSystem.Data.Repository
         {
         }
 
-        public IEnumerable<Aircraft> GetAircraftSelectList()
+        public IEnumerable<Aircraft> GetAircrafts()
         {
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {

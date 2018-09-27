@@ -26,8 +26,8 @@ namespace FlightSystem.Web.Test
         public FlightControllerTest()
         {
 
-            _aircraftServiceMock.Setup(a => a.GetAircraftSelectList()).Returns(new List<Aircraft>());
-            _airportServiceMock.Setup(a => a.GetAirportSelectList()).Returns(new List<Airport>());
+            _aircraftServiceMock.Setup(a => a.GetAircrafts()).Returns(new List<Aircraft>());
+            _airportServiceMock.Setup(a => a.GetAirports()).Returns(new List<Airport>());
             _flightQueryMock.Setup(a => a.GetFlights()).Returns(new List<Flight>());
             _flightQueryMock.Setup(a => a.GetReport()).Returns(new List<FlightReport>());
             _flightServiceMock.Setup(a => a.CreateFlight(It.IsAny<Flight>())).Returns(new bool());

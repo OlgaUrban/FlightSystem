@@ -15,9 +15,9 @@ namespace FlightSystem.Business.Query.Implementation
             _aircraftRepository = new AircraftRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         }
 
-        public IEnumerable<Aircraft> GetAircraftSelectList()
+        public IEnumerable<Aircraft> GetAircrafts()
         {
-            return _aircraftRepository.GetAircraftSelectList();
+            return _aircraftRepository.GetAircrafts();
         }
     }
 }

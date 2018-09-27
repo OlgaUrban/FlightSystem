@@ -15,9 +15,9 @@ namespace FlightSystem.Business.Query.Implementation
             _airportRepository = new AirportRepository(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
         }
 
-        public IEnumerable<Airport> GetAirportSelectList()
+        public IEnumerable<Airport> GetAirports()
         {
-            return _airportRepository.GetAirportSelectList();
+            return _airportRepository.GetAirports();
         }
     }
 }

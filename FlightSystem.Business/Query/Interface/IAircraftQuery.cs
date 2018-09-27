@@ -5,6 +5,6 @@ namespace FlightSystem.Business.Query.Interface
 {
     public interface IAircraftQuery
     {
-        IEnumerable<Aircraft> GetAircraftSelectList();
+        IEnumerable<Aircraft> GetAircrafts();
     }
 }
