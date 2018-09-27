@@ -38,8 +38,6 @@ namespace FlightSystem.Business.Query.Implementation
                 var distance = new Coordinates(flight.DepartureAirport.Latitude, flight.DepartureAirport.Longitude)
                     .DistanceTo(new Coordinates(flight.DestinationAirport.Latitude, flight.DestinationAirport.Longitude));
 
-                var fuel = flight.Aircraft.FuelConsumption * distance + flight.Aircraft.TakeoffEffort;
-
                 report.Add(new FlightReport
                 {
                     Aircraft = flight.Aircraft.Name,
@@ -48,7 +46,7 @@ namespace FlightSystem.Business.Query.Implementation
                     DestinationAirport = flight.DestinationAirport.Name,
                     DestinationDateTime = flight.DestinationDateTime,
                     Distance = distance,
-                    Fuel = fuel
+                    Fuel = new Fuel(flight.Aircraft, distance)
                 });
             }
 

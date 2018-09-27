@@ -31,7 +31,7 @@ namespace FlightSystem.Web.Helpers
                 DepartureDate = e.DepartureDateTime,
                 DestinationAirport = e.DestinationAirport,
                 DestinationDate = e.DestinationDateTime,
-                Fuel = e.Fuel,
+                Fuel = e.Fuel.Value,
                 Distance = e.Distance
             });
         }

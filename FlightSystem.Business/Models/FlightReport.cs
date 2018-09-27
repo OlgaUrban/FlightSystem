@@ -13,6 +13,6 @@ namespace FlightSystem.Business.Models
         public DateTime? DestinationDateTime { get; set; }
 
         public double Distance { get; set; }
-        public double Fuel { get; set; }
+        public Fuel Fuel { get; set; }
     }
 }
