@@ -14,4 +14,5 @@ How to use:
 2) Publish db schema from FlightSystem.Database project
 3) Execute script with Test data (FlightSystem.Database/Text/TestData.sql)
 4) Set FlightSystem.Web as Setup project
-5) Run solution
+5) Update <connectionStrings> in web.config
+6) Run solution
